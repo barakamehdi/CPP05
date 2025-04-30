@@ -14,12 +14,12 @@ Bureaucrat :: ~Bureaucrat(){
     std :: cout << "Destructure for Bureaucrat Called ... !!! " << std  :: endl;
 }
 
-// Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rest) {
+std :: string :: bureaucrat getName (std :: string name){
 
-//         if (this* != rest){
+    return  this->name;
+}
 
+int bureaucrat :: getGrade (){
 
-
-//         }
-
-// }
+    return  grade;
+}

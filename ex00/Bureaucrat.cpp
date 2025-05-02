@@ -4,11 +4,12 @@ Bureaucrat  :: Bureaucrat() : name ("Default"), grade (150){
     std :: cout << "Default Constructure for Bureaucrat  Called ...!" << std :: endl;
 }
 
-Bureaucrat :: Bureaucrat (const std :: string& name , int Grade) : name (name), grade (Grade){
+Bureaucrat :: Bureaucrat (const std :: string& name , int Grade) : name (name){
             if (Grade < 1)
-                throw GradeTooHighException ();
+                throw Bureaucrat::GradeTooHighException ();
             else if (Grade > 150)
-               throw GradeTooLowException();
+               throw  Bureaucrat:: GradeTooLowException ();
+            grade = Grade;
 } 
 
 Bureaucrat :: Bureaucrat (const Bureaucrat& copy) : name (copy.name) , grade(copy.grade){

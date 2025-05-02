@@ -23,18 +23,18 @@ class   Bureaucrat {
             void          incrementGrade(); 
             void          decrementGrade();
 
-        class   GradeTooHighException : std :: exception {
+        class   GradeTooHighException : public std :: exception {
             public : 
                 virtual const char* what() const throw ();
     };
 
-        class  GradeTooLowException : std :: exception {
+        class  GradeTooLowException : public std :: exception {
             public : 
                 virtual const char* what() const throw ();
     };
 };
 
-std::ostream& operator<<(std::ostream& os,  const Bureaucrat& bureaucrat);
+std::ostream& operator<<(std::ostream& os,  const Bureaucrat& Bureaucrat);
 
 #endif
 

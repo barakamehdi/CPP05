@@ -8,7 +8,7 @@ Bureaucrat :: Bureaucrat (const std :: string& name , int Grade) : name (name){
             if (Grade < 1)
                 throw Bureaucrat::GradeTooHighException ();
             else if (Grade > 150)
-               throw  Bureaucrat:: GradeTooLowException ();
+               throw  Bureaucrat::GradeTooLowException ();
             grade = Grade;
 } 
 
@@ -37,7 +37,7 @@ void    Bureaucrat :: incrementGrade(){
 
 void    Bureaucrat :: decrementGrade(){
         if (grade + 1 > 150)
-            throw   GradeTooLowException();
+            throw  Bureaucrat :: GradeTooLowException();
         grade++;
 }
 

@@ -18,7 +18,7 @@ int main(){
 		std::cout << e.what() << std::endl;
 	}
 	try{ 
-		Bureaucrat bureaucrat3(" bureaucrat3", -5465);
+		Bureaucrat bureaucrat3(" bureaucrat3", 151);
 		std::cout << bureaucrat3 << std :: endl;
 	}
 	catch (std::exception &e){

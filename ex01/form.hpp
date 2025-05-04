@@ -4,27 +4,27 @@
 #include    "Bureaucrat.hpp"
 
 
-
+class   Bureaucrat;
 
 
 class   Form {
     private : 
-                const std :: string name ;
-                bool    track = false;
+                const std :: string name  ;
+                bool    track;
                 const   int grade_In;
                 const   int grade_Exec;
     public : 
 
                 Form ();
-                Form (const std :: string& name , int grade , int grade_sign , int grade_Exec bool trucker);
+                Form (const std :: string& name , int grade_sign , int grade_Exec);
                 Form (const Form& copy);
                 Form& operator=(const Form& rest);
                 ~Form ();
 
-                std :: string getName();
-                int     getGrade_In();
-                bool    getTrack();
-                int     getGrade_Out();
+                std :: string getName() const;
+                int     getGrade_In() const;
+                bool    getTrack() const;
+                int     getGrade_Out() const;
 
     class   GradeTooHighException : public std :: exception {
             public : 
@@ -40,8 +40,8 @@ class   Form {
         void beSigned(Bureaucrat const &bureaucrat);
 
 
-}
-std::ostream &operator<<(std::ostream &os, Form const &form);
+};
+std::ostream& operator<<(std::ostream& os, const Form& form);
 
 
 #endif 

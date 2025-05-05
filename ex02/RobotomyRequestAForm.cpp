@@ -1,29 +1,50 @@
-#include "RobotmyRequestAForm.hpp"
+#include "RobotomyRequestAForm.hpp"
 
-RobotmyRequestAForm :: RobotmyRequestAForm () 
+RobotomyRequestAForm :: RobotomyRequestAForm () 
             : AForm("Robotomy Request", 72, 45) ,target("Default"){
     std :: cout << "Default Constructor Called ...!!!" << std :: endl;
 }
 
-RobotmyRequestAForm :: RobotmyRequestAForm (std :: string target)
-            : AForm ("RobotomyRequestAForm" ,signAForm ,signGrade ) , target (target){
+RobotomyRequestAForm :: RobotomyRequestAForm (std :: string target)
+            : AForm ("RobotomyRequestAForm" ,signGrade ,execGrade ) , target (target){
+    std :: cout << "Parametrized Constructor Called ...!!!" << std :: endl;
+
 }
 
-RobotmyRequestAForm :: RobotomyRequestAForm(const RobotomyRequestAForm& copy){
-
-    AForm(copy)
-        target = copy.target;
+RobotomyRequestAForm :: RobotomyRequestAForm(const RobotomyRequestAForm& copy) : 
+            AForm(copy), target(copy.target){
     std :: cout << "Copy Constructor Called ...!!!" << std :: endl;
 }
 
-RobotmyRequestAForm& RobotomyRequestAForm :: operator=(const RobotomyRequestAForm& rest){
+RobotomyRequestAForm& RobotomyRequestAForm :: operator=(const RobotomyRequestAForm& rest){
             if (this != &rest)
                     target  = rest.target;
             return *this;
 }
 
-RobotmyRequestAForm :: ~RobotomyRequestAForm(){
+RobotomyRequestAForm :: ~RobotomyRequestAForm(){
     std :: cout << "Destructor Called ...!!!" << std :: endl;
+}
+
+void RobotomyRequestAForm::execute(Bureaucrat const & executor) const {
+        if (!this->getSign())
+            throw AForm::NotSigned();
+        if (executor.getGrade() > this->getGrade_out())
+            throw AForm::GradeTooLowException();
+    std :: cout <<  "DRILLING NOISES..." << std :: endl;
+    std :: srand(std::time(0));
+    int randomValue = std::rand() % 2;
+    if (randomValue == 0)
+        std :: cout << this->target << " has been robotomized successfully!" << std :: endl;
+    else
+        std :: cout << "Robotomy failed on " << this->target << "." << std :: endl;
+}
+std::ostream& operator<<(std::ostream& os, const RobotomyRequestAForm& RobotomyRequestAForm){
+    os << "RobotomyRequestAForm: " << RobotomyRequestAForm.getName() << std :: endl;
+    os << "Target: " << RobotomyRequestAForm.target << std :: endl;
+    os << "Sign Grade: " << RobotomyRequestAForm.getGrade_In() << std :: endl;
+    os << "Exec Grade: " << RobotomyRequestAForm.getGrade_Out() << std :: endl;
+    return os;
 }
 
 

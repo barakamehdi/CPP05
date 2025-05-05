@@ -1,9 +1,9 @@
-NAME = form
+NAME = AForm
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = Bureaucrat.cpp main.cpp form.cpp 
+SRC = Bureaucrat.cpp main.cpp AForm.cpp 
 OBJ = $(SRC:.cpp=.o) 
-HEADERS = Bureaucrat.hpp form.hpp 
+HEADERS = Bureaucrat.hpp AForm.hpp 
 
 all: $(NAME)
 

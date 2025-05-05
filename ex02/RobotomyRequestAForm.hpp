@@ -1,6 +1,9 @@
 #pragma once
 
-#inlcude "AForm.hpp"
+
+#include <cstdlib>
+#include <ctime>
+#include "AForm.hpp"
 
 class Bureaucrat;
 
@@ -8,7 +11,7 @@ class   RobotomyRequestAForm : public AForm {
     private :
             std :: string   target;
             static const int signGrade = 72;
-            static const int execGrade = 45;`   
+            static const int execGrade = 45;  
 
     public :
             RobotomyRequestAForm();
@@ -21,4 +24,5 @@ class   RobotomyRequestAForm : public AForm {
                        
 
 
-}
+};
+std::ostream& operator<<(std::ostream& os, const RobotomyRequestAForm& RobotomyRequestAForm);

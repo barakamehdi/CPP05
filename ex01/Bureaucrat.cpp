@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat  :: Bureaucrat() : name ("Default"), grade (150){
     std :: cout << "Default Constructure for Bureaucrat  Called ...!" << std :: endl;
@@ -39,6 +40,15 @@ void    Bureaucrat :: decrementGrade(){
         if (grade + 1 > 150)
             throw   GradeTooLowException();
         grade++;
+}
+void	Bureaucrat::signAForm(AForm &AForm){
+	try{
+		AForm.beSigned(*this);
+		std::cout << this->name << " signed " << AForm.getName() << std::endl;
+	}
+	catch(const std::exception& e){
+		std::cout << this->name << " couldn't sign " << AForm.getName() << " because " << e.what() << std::endl;
+	}
 }
 
 const char* Bureaucrat ::  GradeTooHighException :: what () const throw (){

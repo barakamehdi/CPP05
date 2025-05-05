@@ -1,5 +1,5 @@
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AForm_HPP
+#define AForm_HPP
 
 #include    "Bureaucrat.hpp"
 
@@ -7,24 +7,25 @@
 class   Bureaucrat;
 
 
-class   Form {
+class   AForm  {
     private : 
                 const std :: string name  ;
-                bool    track;
                 const   int grade_In;
                 const   int grade_Exec;
+                bool    Sign;
     public : 
 
-                Form ();
-                Form (const std :: string& name , int grade_sign , int grade_Exec);
-                Form (const Form& copy);
-                Form& operator=(const Form& rest);
-                ~Form ();
+                AForm ();
+                AForm (const std :: string& name , int grade_sign , int grade_Exec);
+                AForm (const AForm& copy);
+                AForm& operator=(const AForm& rest);
+                ~AForm ();
 
                 std :: string getName() const;
                 int     getGrade_In() const;
-                bool    getTrack() const;
+                bool    getSign() const;
                 int     getGrade_Out() const;
+                void	      signAForm(AForm &AForm);
 
     class   GradeTooHighException : public std :: exception {
             public : 
@@ -41,7 +42,7 @@ class   Form {
 
 
 };
-std::ostream& operator<<(std::ostream& os, const Form& form);
+std::ostream& operator<<(std::ostream& os, const AForm& AForm);
 
 
 #endif 
@@ -49,7 +50,7 @@ std::ostream& operator<<(std::ostream& os, const Form& form);
 
 
 
-// Form Class
+// AForm Class
 // ├── Attributes (private)
 // │   ├── name (const string)
 // │   ├── isSigned (bool) - initially false
@@ -60,18 +61,18 @@ std::ostream& operator<<(std::ostream& os, const Form& form);
 // │   ├── Grade 1: Highest
 // │   ├── Grade 150: Lowest
 // │   └── Exceptions
-// │       ├── Form::GradeTooHighException (if grade < 1)
-// │       └── Form::GradeTooLowException (if grade > 150)
+// │       ├── AForm::GradeTooHighException (if grade < 1)
+// │       └── AForm::GradeTooLowException (if grade > 150)
 // │
 // ├── Member Functions
 // │   ├── Getters for all attributes
 // │   ├── beSigned(Bureaucrat)
-// │   │   └── Changes form status if bureaucrat grade is sufficient
-// │   │       └── Throws Form::GradeTooLowException if grade insufficient
+// │   │   └── Changes AForm status if bureaucrat grade is sufficient
+// │   │       └── Throws AForm::GradeTooLowException if grade insufficient
 // │   └── Operator << overload
-// │       └── Prints all form information
+// │       └── Prints all AForm inAFormation
 // │
 // └── Integration with Bureaucrat
-//     └── New Bureaucrat::signForm() function
-//         ├── Attempts to sign the form
+//     └── New Bureaucrat::signAForm() function
+//         ├── Attempts to sign the AForm
 //         └── Prints success or failure message with reason

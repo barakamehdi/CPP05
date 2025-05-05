@@ -51,6 +51,16 @@ void	Bureaucrat::signAForm(AForm &AForm){
 	}
 }
 
+void Bureaucrat :: executeForm(AForm const &form){
+    try{
+        AForm.execute(*this);
+        std :: cout << this->name << "executed " << AForm.getName() << std :: endl;
+    }
+    catch (const std :: exception& e){
+        std :: cout << this->name << " couldn't execute " << AForm.getName() << " because " << e.what() << std :: endl;
+    }
+}
+
 const char* Bureaucrat ::  GradeTooHighException :: what () const throw (){
     return "Grade is too high! Cannot increment beyond grade 1.";
      

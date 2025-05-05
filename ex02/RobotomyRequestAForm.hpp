@@ -1,13 +1,14 @@
 #pragma once
 
-#inlcude "Bureaucrat.hpp"
 #inlcude "AForm.hpp"
 
+class Bureaucrat;
 
-
-class   RobotomyRequestAForm : AForm {
+class   RobotomyRequestAForm : public AForm {
     private :
             std :: string   target;
+            static const int signGrade = 72;
+            static const int execGrade = 45;`   
 
     public :
             RobotomyRequestAForm();
@@ -16,6 +17,8 @@ class   RobotomyRequestAForm : AForm {
             RobotomyRequestAForm& operator=(const RobotomyRequestAForm& rest);
             virtual ~RobotomyRequestAForm();
             virtual void execute(Bureaucrat const & executor) const;
+            
+                       
 
 
 }

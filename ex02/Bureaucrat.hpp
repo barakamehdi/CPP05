@@ -5,7 +5,10 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+
 class   AForm;
+
+
 class   Bureaucrat {
     private :   
             std :: string const name ;

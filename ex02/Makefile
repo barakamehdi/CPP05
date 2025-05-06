@@ -1,9 +1,13 @@
-NAME = AForm
+NAME = police
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = Bureaucrat.cpp main.cpp AForm.cpp 
+SRC = Bureaucrat.cpp main.cpp AForm.cpp  \
+		PresidentialPardonForm.cpp RobotomyRequestAForm.cpp \
+		ShrubberyCreationForm.cpp 
 OBJ = $(SRC:.cpp=.o) 
-HEADERS = Bureaucrat.hpp AForm.hpp 
+HEADERS = Bureaucrat.hpp AForm.hpp  \
+		PresidentialPardonForm.hpp RobotomyRequestAForm.hpp \
+		ShrubberyCreationForm.hpp 
 
 all: $(NAME)
 

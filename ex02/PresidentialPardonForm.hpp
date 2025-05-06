@@ -1,33 +1,26 @@
-#program once
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
-#include "Form.hpp"
+
+#include "AForm.hpp"
+
+class   Bureaucrat;
 
 
-class ShrubberyCreationForm : public AForm {
+class   PresidentialPardonForm : public AForm{
 
     private :
-                 std :: string  target;
-                 const  int     signGrade = 145;
-                 const  int     execGrade = 137;
-
+            std :: string target ; 
+            const int signGrade;
+            const int execGrade;
     public :
-
-            ShrubberyCreationForm ();
-            ShrubberyCreationForm (const std :: string target);
-            ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
-            virtual ~ShrubberyCreationForm();
-
+            PresidentialPardonForm ();
+            PresidentialPardonForm(const std :: string target);
+            PresidentialPardonForm(const PresidentialPardonForm& copy);
+            PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
+            virtual ~PresidentialPardonForm();
 
             virtual void execute(Bureaucrat const & executor) const;
+            std :: string Get_target()const;
 };
-std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& ShrubberyCreationForm);
-
-
-
-// outfile << "    *    " << std::endl;
-// outfile << "   ***   " << std::endl;
-// outfile << "  *****  " << std::endl;
-// outfile << " ******* " << std::endl;
-// outfile << "*********" << std::endl;
-// outfile << "    |    " << std::endl;
-// outfile << "    |    " << std::endl;
+#endif

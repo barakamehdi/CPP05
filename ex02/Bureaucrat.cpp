@@ -18,7 +18,7 @@ Bureaucrat :: Bureaucrat (const Bureaucrat& copy) : name (copy.name) , grade(cop
 }
 
 Bureaucrat :: ~Bureaucrat(){
-    std :: cout << " Destructure for Bureaucrat Called ... !!! " << std  :: endl;
+    std :: cout << "Destructure for Bureaucrat Called ... !!! " << std  :: endl;
 }
 
  
@@ -53,11 +53,11 @@ void	Bureaucrat::signAForm(AForm &AForm){
 
 void Bureaucrat :: executeForm(AForm const &form){
     try{
-        AForm.execute(*this);
-        std :: cout << this->name << "executed " << AForm.getName() << std :: endl;
+        form.execute(*this);
+        std :: cout << this->name << "executed " << form.getName() << std :: endl;
     }
     catch (const std :: exception& e){
-        std :: cout << this->name << " couldn't execute " << AForm.getName() << " because " << e.what() << std :: endl;
+        std :: cout << this->name << " couldn't execute " << form.getName() << " because " << e.what() << std :: endl;
     }
 }
 

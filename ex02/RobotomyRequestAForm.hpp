@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ROBOTOMYREQUESTAFORM_HPP
+#define ROBOTOMYREQUESTAFORM_HPP
 
 
 #include <cstdlib>
@@ -20,9 +21,11 @@ class   RobotomyRequestAForm : public AForm {
             RobotomyRequestAForm& operator=(const RobotomyRequestAForm& rest);
             virtual ~RobotomyRequestAForm();
             virtual void execute(Bureaucrat const & executor) const;
+            std :: string Get_target()const;
             
                        
 
 
 };
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestAForm& RobotomyRequestAForm);
+#endif

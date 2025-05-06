@@ -1,49 +1,42 @@
-#include "ShrubberyCreationForm"
+#include "PresidentialPardonForm.hpp"
 
-
-ShrubberyCreationForm :: ShrubberyCreationForm(): AForm ("shrubbery ",145,137),target (target){
-    std :: cout << "Default Costructor for Shrubbery is Called ...!!" << std :: endl;
+PresidentialPardonForm :: PresidentialPardonForm() 
+                    : AForm ("PresidentialPardonForm " ,25,5),target ("Default"),signGrade(25), execGrade(5){
+        std :: cout << "Default Constructor for PardonForm Called ... !!" << std :: endl;
 }
 
-ShrubberyCreationForm :: ShrubberyCreationForm(const std :: string target) 
-                    : AForm ("shrubberyAForm ",signGrade,execGrade),target (target){
-    std :: cout << "Copy Constructor is Called ...!!" << std :: endl;
+PresidentialPardonForm :: PresidentialPardonForm(const std :: string target) 
+                    : AForm ("PresidentialPardonForm " ,25 , 5),target (target),signGrade(25), execGrade(5){
+    std :: cout << "parameterized Constructor for PardonForm is Called  ..." << std :: endl;
 }
 
-ShrubberyCreationForm& ShrubberyCreationForm ::operator=(const ShrubberyCreationForm& other){
+PresidentialPardonForm :: PresidentialPardonForm(const PresidentialPardonForm& copy) 
+                : AForm ("PresidentialPardonForm ", copy.signGrade , copy.execGrade ) ,signGrade(copy.signGrade), execGrade(copy.execGrade ){
+    std :: cout << "Copy Constructor is Called .... !!";
+} 
+
+PresidentialPardonForm& PresidentialPardonForm :: operator=(const PresidentialPardonForm& other){
     if (this != &other)
         target = other.target;
     return *this;
 }
 
-void ShrubberyCreationForm :: execute(Bureaucrat const & executor) const{
-    if (!this->getSign())
-        throw AForm::NotSigned();
-    if (executor.getGrade() > this->getGrade_out())
-        throw AForm::GradeTooLowException();
-
-    std :: string filename = this->target + "_shrubbery";
-    std :: ofstream outfile(filename.c_str());
-
-    if (!outfile.is_open()){
-        std :: cout << "Error for Creating this " << filename << std :: endl;
-        return
-    }
-    outfile << "    *    " << std::endl;
-    outfile << "   ***   " << std::endl;
-    outfile << "  *****  " << std::endl;
-    outfile << " ******* " << std::endl;
-    outfile << "*********" << std::endl;
-    outfile << "    |    " << std::endl;
-    outfile << "    |    " << std::endl;
-    
-    outfile.close();
+PresidentialPardonForm :: ~PresidentialPardonForm (){
+    std :: cout << "Destructor for PardonForm Called" << std :: endl;
 }
 
-std::ostream& operator<<(std::ostream& os, const ShrubberyCreationForm& ShrubberyCreationForm){
-    os << "ShrubberyCreationForm: " << ShrubberyCreationForm.getName() << std :: endl;
-    os << "Target: " << ShrubberyCreationForm.target << std :: endl;
-    os << "Sign Grade: " << ShrubberyCreationForm.getGrade_In() << std :: endl;
-    os << "Exec Grade: " << ShrubberyCreationForm.getGrade_Out() << std :: endl;
-    return os;
+void    PresidentialPardonForm :: execute(Bureaucrat const & executor) const{
+        if (!this->getSign())
+                throw AForm :: NotSigned();
+        if (executor.getGrade() > this->getGrade_Out())
+            throw AForm :: GradeTooLowException();
+     std :: cout << "this " << target << "has been pardoned by Zaphod Beeblebrox" << std :: endl;
 }
+
+std :: string PresidentialPardonForm :: Get_target () const{
+    return  target;
+}
+
+
+ 
+

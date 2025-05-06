@@ -1,44 +1,34 @@
+
+#include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestAForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-// int main(){
-// 	try{
-// 		Bureaucrat b1("b1", 9);
-// 		AForm f1("f1", 10, 10);
-// 		b1.signAForm(f1);
-
-// 		Bureaucrat b2("b2", 11);
-// 		AForm f2("f2", 10, 10);
-// 		b2.signAForm(f2);
-// 	}
-// 	catch(const std::exception& e){
-// 		std::cout << e.what() << std::endl;
-// 	}
-// }
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////
-// RobotomyRequestAForm Implementation
-// ├── Class Definition
-// │   ├── Inherit from AForm
-// │   └── Define required member variables (if any)
-// │
-// ├── Constructors & Destructors
-// │   ├── Default constructor (optional but recommended)
-// │   ├── Constructor taking target string
-// │   │   └── Initialize with name "Robotomy Request" and required grades (sign: 72, exec: 45)
-// │   ├── Copy constructor
-// │   ├── Assignment operator overload
-// │   └── Destructor (virtual)
-// │
-// ├── Execute Method Implementation
-// │   ├── Override execute(Bureaucrat const & executor) const
-// │   │   ├── Call base class execute to validate permissions
-// │   │   ├── Display drilling noise message
-// │   │   ├── Generate random outcome (50% chance)
-// │   │   └── Display success or failure message based on outcome
-// │   │       ├── Success: "<target> has been robotomized successfully"
-// │   │       └── Failure: "Robotomy of <target> failed"
-// │
-// └── Additional Methods (if needed)
-//     └── Any helper functions for randomization or output AFormatting
-///////////////////////////////////////////////////////////////////////////////////////////////
+int main(void)
+{
+    try
+    {
+        Bureaucrat a("Bur1", 1);
+        Bureaucrat b("Bur2", 1);
+        PresidentialPardonForm p("President");
+        ShrubberyCreationForm s("shrubbery");
+        RobotomyRequestAForm r("Robotomy");
+        p.beSigned(a);
+        s.beSigned(b);
+        r.beSigned(a);
+        a.signAForm(p);
+        b.signAForm(p);
+        b.signAForm(s);
+        s.execute(a);
+        r.execute(a);
+        p.execute(a);
+        a.executeForm(p);
+        b.executeForm(r);
+        b.executeForm(s);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << '\n';
+    }
+}

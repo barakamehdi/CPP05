@@ -2,12 +2,12 @@
 
 RobotomyRequestAForm :: RobotomyRequestAForm () 
             : AForm("Robotomy Request", 72, 45) ,target("Default"){
-    std :: cout << "Default Constructor Called ...!!!" << std :: endl;
+    std :: cout << "Default Constructor for RobotomyRequestAForm  Called ...!!!" << std :: endl;
 }
 
 RobotomyRequestAForm :: RobotomyRequestAForm (std :: string target)
             : AForm ("RobotomyRequestAForm" ,signGrade ,execGrade ) , target (target){
-    std :: cout << "Parametrized Constructor Called ...!!!" << std :: endl;
+    std :: cout << "Parametrized Constructor for RobotomyRequestAForm Called ...!!!" << std :: endl;
 
 }
 
@@ -26,10 +26,13 @@ RobotomyRequestAForm :: ~RobotomyRequestAForm(){
     std :: cout << "Destructor Called ...!!!" << std :: endl;
 }
 
+std :: string RobotomyRequestAForm :: Get_target() const {
+    return target;
+}
 void RobotomyRequestAForm::execute(Bureaucrat const & executor) const {
         if (!this->getSign())
             throw AForm::NotSigned();
-        if (executor.getGrade() > this->getGrade_out())
+        if (executor.getGrade() > this->getGrade_Out())
             throw AForm::GradeTooLowException();
     std :: cout <<  "DRILLING NOISES..." << std :: endl;
     std :: srand(std::time(0));
@@ -41,7 +44,7 @@ void RobotomyRequestAForm::execute(Bureaucrat const & executor) const {
 }
 std::ostream& operator<<(std::ostream& os, const RobotomyRequestAForm& RobotomyRequestAForm){
     os << "RobotomyRequestAForm: " << RobotomyRequestAForm.getName() << std :: endl;
-    os << "Target: " << RobotomyRequestAForm.target << std :: endl;
+    os << "Target: " << RobotomyRequestAForm.Get_target() << std :: endl;
     os << "Sign Grade: " << RobotomyRequestAForm.getGrade_In() << std :: endl;
     os << "Exec Grade: " << RobotomyRequestAForm.getGrade_Out() << std :: endl;
     return os;

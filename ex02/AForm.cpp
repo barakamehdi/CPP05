@@ -43,6 +43,9 @@ int  AForm :: getGrade_Out() const{
 bool AForm :: getSign () const{
     return Sign;
 }
+const char* AForm :: NotSigned :: what () const throw () {
+    return "AForm is not signed! Cannot execute.";
+}
 
 const char* AForm ::  GradeTooHighException :: what () const throw (){
     return "Grade is too high! Cannot increment beyond grade 1.";

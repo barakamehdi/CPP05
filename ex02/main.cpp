@@ -9,7 +9,7 @@ int main(void)
 {
     try
     {
-        Bureaucrat a("Bur1", 1);
+        Bureaucrat a("Bur1", 51);
         Bureaucrat b("Bur2", 1);
         PresidentialPardonForm p("President");
         ShrubberyCreationForm s("shrubbery");

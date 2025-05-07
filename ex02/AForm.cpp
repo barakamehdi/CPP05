@@ -1,6 +1,6 @@
 #include    "AForm.hpp"
 
-AForm  :: AForm () : name ("default") ,grade_In(150), grade_Exec(150), Sign(false) {
+AForm  :: AForm () : name ("default") ,grade_In(1), grade_Exec(150), Sign(false) {
     std :: cout << "Default Construtor for AForm is Called ...!!! " << std :: endl;
  }
 

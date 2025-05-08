@@ -1,0 +1,34 @@
+
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestAForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+int main(void)
+{
+    try
+    {
+        Bureaucrat a("Bur1", 51);
+        Bureaucrat b("Bur2", 1);
+        PresidentialPardonForm p("President");
+        ShrubberyCreationForm s("shrubbery");
+        RobotomyRequestAForm r("Robotomy");
+        p.beSigned(a);
+        s.beSigned(b);
+        r.beSigned(a);
+        a.signAForm(p);
+        b.signAForm(p);
+        b.signAForm(s);
+        s.execute(a);
+        r.execute(a);
+        p.execute(a);
+        a.executeForm(p);
+        b.executeForm(r);
+        b.executeForm(s);
+    }
+    catch(std::exception &e)
+    {
+        std::cout << e.what() << '\n';
+    }
+}

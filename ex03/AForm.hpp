@@ -19,7 +19,7 @@ class   AForm  {
                 AForm (const std :: string& name , int grade_sign , int grade_Exec);
                 AForm (const AForm& copy);
                 AForm& operator=(const AForm& rest);
-                ~AForm ();
+                virtual     ~AForm ();
 
                 std :: string   getName() const;
                 int             getGrade_In() const;

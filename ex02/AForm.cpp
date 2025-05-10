@@ -10,7 +10,7 @@ AForm :: AForm (const std :: string& name , int grade_sign , int grade_Exec) :
                 throw AForm :: GradeTooHighException ();
             else if (grade_In > 150 || grade_Exec > 150)
                 throw AForm :: GradeTooLowException();
-            Sign = true;
+            // Sign = true;
 } 
 
 AForm :: AForm (const AForm& copy) : name (copy.name),
@@ -58,7 +58,7 @@ const char* AForm ::  GradeTooLowException :: what () const  throw (){
 
 void AForm::beSigned(Bureaucrat const &bureaucrat) {
     if (bureaucrat.getGrade() <= grade_In) {
-        Sign = true;
+        Sign = true;   
     } else {
         throw AForm::GradeTooLowException();
     }

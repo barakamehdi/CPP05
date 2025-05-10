@@ -5,6 +5,7 @@
 #include <fstream>
 
 class   AForm;
+class   Bureaucrat;
 
 class ShrubberyCreationForm : public AForm {
 

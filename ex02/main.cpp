@@ -9,8 +9,8 @@ int main(void)
 {
     try
     {
-        Bureaucrat a("Bur1", 51);
-        Bureaucrat b("Bur2", 1);
+        Bureaucrat a("Bur1", 21);
+        Bureaucrat b("Bur2", 51);
         PresidentialPardonForm p("President");
         ShrubberyCreationForm s("shrubbery");
         RobotomyRequestAForm r("Robotomy");

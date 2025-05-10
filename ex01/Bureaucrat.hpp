@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
-class   AForm;
+class   Form;
 class   Bureaucrat {
     private :   
             std :: string const name ;
@@ -21,7 +21,7 @@ class   Bureaucrat {
             int           getGrade()const;
             void          incrementGrade(); 
             void          decrementGrade();
-            void	      signAForm(AForm &AForm);
+            void	      signAForm(Form &Form);
 
         class   GradeTooHighException : public std :: exception {
             public : 

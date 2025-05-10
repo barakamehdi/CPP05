@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "AForm.hpp"
+#include "Form.hpp"
 
 Bureaucrat  :: Bureaucrat() : name ("Default"), grade (150){
     std :: cout << "Default Constructure for Bureaucrat  Called ...!" << std :: endl;
@@ -41,13 +41,13 @@ void    Bureaucrat :: decrementGrade(){
             throw   GradeTooLowException();
         grade++;
 }
-void	Bureaucrat::signAForm(AForm &AForm){
+void	Bureaucrat::signAForm(Form &Form){
 	try{
-		AForm.beSigned(*this);
-		std::cout << this->name << " signed " << AForm.getName() << std::endl;
+		Form.beSigned(*this);
+		std::cout << this->name << " signed " << Form.getName() << std::endl;
 	}
 	catch(const std::exception& e){
-		std::cout << this->name << " couldn't sign " << AForm.getName() << " because " << e.what() << std::endl;
+		std::cout << this->name << " couldn't sign " << Form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
